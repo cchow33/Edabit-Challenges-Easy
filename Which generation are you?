@@ -4,7 +4,7 @@ If positive, return the related descendant.
 You are generation 0. In the case of 0 (male or female), return "me!".
 
 
-// Solution
+// Solution: 1
 function generation(number, gender) {
 	const familyMembers = {
 		'-3': { m: 'great grandfather', f: 'great grandmother' },
@@ -17,3 +17,25 @@ function generation(number, gender) {
 };
   return familyMembers[number][gender]
 }
+
+// Solution #2:
+
+function generation(x, y) {
+	const familyMembers = {
+		'-3': ['great grandfather', 'great grandmother'],
+		'-2': ['grandfather', 'grandmother'],
+		'-1': ['father', 'mother'],
+		 '0': ['me!', 'me!'],
+		 '1': ['son', 'daughter'],
+		 '2': ['grandson', 'granddaughter'],
+		 '3': ['great grandson', 'great granddaughter']
+};
+
+  return familyMembers[x][y === 'm' ? 0 : 1]
+
+}
+
+console.log(generation(2, "f"))
+console.log(generation(-3, "m")) 
+console.log(generation(1, "f")) 
+
